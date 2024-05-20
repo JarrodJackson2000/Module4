@@ -1,0 +1,16 @@
+Lab #1 Figma
+
+I want to design a social networking application for car enthuisasts. 
+This social network will allow users to create a profile to share their content and connect with others.
+
+Requirements:
+
+Users must have an account to be able to use the application. So the landing page will be the login page with an option to create an account.
+Users will need to 18+ to create an account
+Once the user has logged in or created an account they will be redirected to the "feed" page. This is where they will be able to view a 
+instagram themed timeline of post from accounts they have followed or "suggested" posts
+Users will be able to access the generate post button, profile button, direct messages button and search button from this page. 
+Users will be able to customize their user profile as well as create and modify multiple "vehicle" profiles. These pages will be dedicated to photos and content to do with the vehicles. 
+Users will have the option to keep their personal profile private while allowing their vehicle pages to be public
+Users can post photos or videos with captions to either their personal page or to their specific vehicle pages 
+Users can comunicate directly through direct messages or create group chats 
