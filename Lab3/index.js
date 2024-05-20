@@ -1,4 +1,3 @@
-// Get references to elements
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".buttons button");
 
@@ -6,12 +5,10 @@ let currentInput = "";
 let result = null;
 let operator = null;
 
-// Function to update the display
 function updateDisplay(value) {
   display.value = value;
 }
 
-// Function to handle button clicks
 function handleButtonClick(event) {
   const buttonClicked = event.target;
   const buttonValue = buttonClicked.textContent;
@@ -84,7 +81,6 @@ function handleButtonClick(event) {
   }
 }
 
-// Add event listener to buttons
 buttons.forEach((button) => {
   button.addEventListener("click", handleButtonClick);
 });
