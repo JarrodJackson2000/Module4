@@ -35,7 +35,7 @@ xios.min.js"></script>
     const jsonData = { posts: [] };
     function fetchData() {
       axios
-        .get("https://jsonplaceholder.typicode.com/posts")
+        .get("https://jsonplaceholder.typicode.com/posts/?_limit=10")
         .then((response) => {
           jsonData.posts = response.data;
         })
