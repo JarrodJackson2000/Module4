@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <template id="template1">
+      <div class="card col-3" style="margin: 20px">
+        <div class="card-body">
+          <h5 class="template1-title"></h5>
+          <p class="template1-content"></p>
+        </div>
+      </div>
+    </template>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" id="template-insert"></div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/a
+xios.min.js"></script>
+  <script src="index.js"></script>
+  <script>
+    const jsonData = { posts: [] };
+    function fetchData() {
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+          jsonData.posts = response.data;
+        })
+        .then((data) => {
+          jsonData.posts.forEach((data) => addCard(data));
+        });
+    }
+    function addCard(data) {
+      const template = document
+        .getElementById("template1")
+        .content.cloneNode(true);
+      template.querySelector(`.template1-title`).innerText = data.title;
+      template.querySelector(`.template1-content`).innerText = data.body;
+      document.querySelector("#template-insert").appendChild(template);
+    }
+    fetchData();
+  </script>
+</html>
