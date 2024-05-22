@@ -1,0 +1,27 @@
+div {
+  height: 150px;
+  width: 150px;
+  background-color: red;
+  color: red;
+  animation-name: slidedown;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: 0%;
+  }
+  50% {
+    background-color: blue;
+    margin-top: 83vh;
+  }
+  to {
+    margin-top: 0%;
+    background-color: red;
+  }
+}
+
+body {
+  max-height: 100vh;
+}
