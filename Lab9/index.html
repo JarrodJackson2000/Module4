@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eCharts</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- Prepare a DOM with a defined width and height for ECharts -->
+    <div id="main" style="width: 900px; height: 600px"></div>
+    <script type="text/javascript">
+      // Specify the configuration items and data for the chart
+
+      let options = {
+        title: { text: "Fake Store Categories" },
+        xAxis: {
+          data: [],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "# products",
+            type: "bar",
+            data: [],
+          },
+        ],
+      };
+
+      let categorySet = new Set();
+      let mensClothing = new Map();
+      let jewelery = new Map();
+      let electronics = new Map();
+      let womensClothing = new Map();
+
+      let mensClothingValue = "";
+      let jeweleryValue = "";
+      let electronicsValue = "";
+      let womensClothingValue = "";
+
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => response.json())
+        .then((json) => {
+          json.forEach((product) => {
+            categorySet.add(product.category);
+          });
+          let category1 = "men's clothing";
+          Object.entries(json).forEach(([key, value]) => {
+            if (value.category === category1) {
+              mensClothing.set(key, value);
+            }
+          });
+          let category2 = "jewelery";
+          Object.entries(json).forEach(([key, value]) => {
+            if (value.category === category2) {
+              jewelery.set(key, value);
+            }
+          });
+          let category3 = "electronics";
+          Object.entries(json).forEach(([key, value]) => {
+            if (value.category === category3) {
+              electronics.set(key, value);
+            }
+          });
+          let category4 = "women's clothing";
+          Object.entries(json).forEach(([key, value]) => {
+            if (value.category === category4) {
+              womensClothing.set(key, value);
+            }
+          });
+          // use this JSON to find and set correct option data for the chart
+        })
+        .then(() => {
+          mensClothingValue = mensClothing.size;
+          jeweleryValue = jewelery.size;
+          electronicsValue = electronics.size;
+          womensClothingValue = womensClothing.size;
+        })
+        //Here add the function which pushes the data into the array
+        .then(() => {
+          options.series[0].data.push(mensClothingValue);
+          options.series[0].data.push(jeweleryValue);
+          options.series[0].data.push(electronicsValue);
+          options.series[0].data.push(womensClothingValue);
+        })
+        //End here
+        .then(() => {
+          let categoryArray = Array.from(categorySet);
+          options.xAxis.data = categoryArray;
+        })
+        .then(() => {
+          // Here I will create an array of the Data (Number of items in each catergory) and add it to the graph
+        })
+        .then(() => {
+          // Display the chart
+          myChart.setOption(options);
+        });
+
+      // Initialise the echarts instance based on the prepared div
+      let myChart = echarts.init(document.getElementById("main"));
+    </script>
+  </body>
+</html>
