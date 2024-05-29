@@ -17,6 +17,11 @@ async function handleData() {
 }
 
 async function addDropdown() {
+  //This code works as intended for this exercise, but if the fake store API ever wants to add another
+  //category, this code won't display the new category since there are only 4 dropdown options
+  //in the HTML. It would be better if you created a new dropdown element in the JavaScript and appended
+  //it to the ul with class "dropdown-menu". This would allow your code to work with any number of
+  //categories.
   await handleData();
   const categoryTemplate = document
     .getElementById("categoryTemplate")
