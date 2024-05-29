@@ -43,6 +43,11 @@ function differentDates(date1, date2) {
   let var2 = moment(date2);
   let check1 = var1.diff(moment());
   let check2 = var2.diff(moment());
+  //Since the difference can be negative (if the date is before the current date today)
+  //that can make the result of this function not what we expect. To make the calculation fair
+  //you can use Math.abs() to make both differences positive numbers. Then you can change the
+  //ternary condition here to use a less than symbol (<) and then this function will give the
+  //expected result whether the date is in the future or the past
   check1 > check2 ? console.log(date1) : console.log(date2);
 }
 
@@ -54,6 +59,9 @@ date is before or after the second date */
 function firstDate(first, second) {
   let date1 = moment(first);
   let date2 = moment(second);
+  //An easier way to do this would be to use the isBefore method of the Moment objects
+  //For example:
+  //console.log(`The first date is ${date1.isBefore(date2) ? 'before' : 'after'} the second date`)
   let checkDate1 = date1.diff(moment());
   let checkDate2 = date2.diff(moment());
   checkDate1 < checkDate2

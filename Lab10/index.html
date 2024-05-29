@@ -74,6 +74,12 @@
         </div>
         <nav class="navbar bg-body-tertiary">
           <div class="container-fluid">
+            <!--This search form is correct and does what it's meant to. But for the future,-->
+            <!--it would be better to handle submitting the form with JavaScript-->
+            <!--(and preventing the default behaviour of the form going to a different URL with preventDefault)-->
+            <!--https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault-->
+            <!--This will allow someone to press enter on their keyboard and have the search box do the search-->
+            <!--instead of only being able to press the search button-->
             <form class="d-flex" role="search">
               <input
                 id="searchInput"

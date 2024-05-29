@@ -14,6 +14,9 @@ div {
   }
   50% {
     background-color: blue;
+    /*Depending on certain screen sizes, with 83vh the box might go off the screen or not hit the
+    bottom of the screen. Since the box is always going to be 150px in height, you can use calc
+    to get the margin-top. margin-top: calc(100vh - 150px)*/
     margin-top: 83vh;
   }
   to {

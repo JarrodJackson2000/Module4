@@ -18,8 +18,18 @@
         </div>
       </nav></div>
       <div class="container text-center">
-        <div class="row">
-        
+        <div class="row g-1">
+        <!--When I open this webpage on my computer, at a certain size there are 3 cards-->
+        <!--side by side, but we only want 1, 2, and 4 cards side by side at certain-->
+        <!--screen sizes. Moving the col related classes outside of the card div and putting-->
+        <!--them into their own div (so the card div is now a child of the col div)-->
+        <!--then that'll fix that. The width and margin styles should also be removed from the-->
+        <!--the cards so then Bootstrap can handle the sizing of the cards and layout for you-->
+        <!--To add spacing between the cards, you can use Bootstrap Gutters:-->
+        <!--https://getbootstrap.com/docs/5.3/layout/gutters/#how-they-work-->
+        <!--It would also be better to put a card into a template element-->
+        <!--and then use JS to copy the template's content and put the content on the page-->
+        <!--This will allow you to only edit one card and have all cards have the updated content-->
         <div class="card col-12 col-lg-3 col-md-6" style="width: 18rem; margin: 20px;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">

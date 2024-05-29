@@ -97,6 +97,30 @@
           myChart.setOption(options);
         });
 
+        //I don't think this file has been updated since we went through this file in the lab
+        //In the lab we went over a way to get the number of items in each category using
+        //less lines of code. For example:
+        /*
+          const categories = {};
+          for (const product of json) {
+            const category = product.category;
+            if (category in categories) {
+              categories[category] += 1
+            } else {
+              categories[category] = 1
+            }
+          }
+
+          //Now you have a categories object. The property names are the categories,
+          //and the values are the number of products in those categories. We can now set the
+          //chart options to show this data
+
+          options.xAxis.data = Object.keys(categories)
+          options.series[0].data = Object.values(categories)
+
+          myChart.setOption(options)
+        */
+
       // Initialise the echarts instance based on the prepared div
       let myChart = echarts.init(document.getElementById("main"));
     </script>
